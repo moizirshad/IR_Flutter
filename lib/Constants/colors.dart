@@ -10,3 +10,4 @@ Color buttonActiveColor = Color(0xff295135);
 Color buttonDisableColor = Color(0xffC7DCC5);
 Color menuFooterBG = Color(0xffFBFBFB);
 Color eventsCellBackgroundColor = Color(0xff295135);
+Color lightGreyTextColor = Colors.grey[400];
