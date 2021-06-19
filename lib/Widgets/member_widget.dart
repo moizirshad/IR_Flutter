@@ -25,20 +25,31 @@ class _MemberWidgetState extends State<MemberWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: ListTile(
-        title: Text(
-          this.memberItem.nameString,
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14.0),
-        ),
-        subtitle: Text(
-          this.memberItem.designationString,
-          style: TextStyle(
-              color: lightGreyTextColor,
-              fontWeight: FontWeight.bold,
-              fontSize: 14.0),
-        ),
-      ),
-    );
+        child: ListTile(
+            title: Transform(
+                transform: Matrix4.translationValues(-30, 0.0, 0.0),
+                child: Text(
+                  this.memberItem.nameString,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14.0),
+                )),
+            subtitle: Transform(
+                transform: Matrix4.translationValues(-30, 0.0, 0.0),
+                child: Text(
+                  this.memberItem.designationString,
+                  style: TextStyle(
+                      color: lightGreyTextColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14.0),
+                )),
+            leading: Transform(
+                transform: Matrix4.translationValues(-16, 0.0, 0.0),
+                child: CircleAvatar(
+                  radius: 44.0,
+                  backgroundImage:
+                      NetworkImage('http://googleflutter.com/sample_image.jpg'),
+                ))));
   }
 }

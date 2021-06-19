@@ -21,7 +21,7 @@ class _BoardManagementWidgetState extends State<BoardManagementWidget> {
       child: DefaultTabController(
         length: 2,
         child: Scaffold(
-          backgroundColor: Colors.green[600],
+          backgroundColor: Colors.teal[900],
           appBar: TabBar(
             indicatorColor: Colors.white,
             tabs: [
@@ -48,7 +48,7 @@ class _BoardManagementWidgetState extends State<BoardManagementWidget> {
           body: TabBarView(
             children: [
               BoardMembersListWidget(),
-              RatiosWidget(),
+              BoardMembersListWidget(),
             ],
           ),
         ),
