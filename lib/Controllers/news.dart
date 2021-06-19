@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ir_app/Models/news_item.dart';
-import 'package:ir_app/Models/row_widget.dart';
+import 'package:ir_app/Widgets/row_widget.dart';
 
 class NewsWidget extends StatefulWidget {
   @override

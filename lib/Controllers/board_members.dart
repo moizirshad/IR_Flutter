@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ir_app/Models/member_item.dart';
+import 'package:ir_app/Widgets/member_widget.dart';
 
 class BoardMembersListWidget extends StatefulWidget {
   BoardMembersListWidget({Key key}) : super(key: key);
@@ -8,28 +10,25 @@ class BoardMembersListWidget extends StatefulWidget {
 }
 
 class _BoardMembersListWidgetState extends State<BoardMembersListWidget> {
+  List<Member> boardMemberItems = [
+    Member('Hesham Abulmalik Al-Alsheikh', 'Chairman of the Board',
+        'profileImageString'),
+    Member('Hesham Abulmalik Al-Alsheikh', 'Chairman of the Board',
+        'profileImageString'),
+    Member('Hesham Abulmalik Al-Alsheikh', 'Chairman of the Board',
+        'profileImageString'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: ListView(
-        padding: const EdgeInsets.all(8),
-        children: <Widget>[
-          Container(
-            height: 50,
-            color: Colors.amber[600],
-            child: const Center(child: Text('Board Member A')),
-          ),
-          Container(
-            height: 50,
-            color: Colors.amber[500],
-            child: const Center(child: Text('Board Member B')),
-          ),
-          Container(
-            height: 50,
-            color: Colors.amber[100],
-            child: const Center(child: Text('Board Member C')),
-          ),
-        ],
+      decoration: BoxDecoration(color: Colors.white),
+      child: ListView.builder(
+        itemCount: boardMemberItems.length,
+        itemBuilder: (context, index) {
+          var item = boardMemberItems[index];
+          return MemberWidget(memberItem: item);
+        },
       ),
     );
   }
