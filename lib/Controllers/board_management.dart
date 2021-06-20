@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ir_app/Controllers/board_members.dart';
-import 'package:ir_app/Controllers/ratios.dart';
+//import 'package:ir_app/Controllers/ratios.dart';
 
 class BoardManagementWidget extends StatefulWidget {
   @override

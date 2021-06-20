@@ -46,7 +46,9 @@ class _NewsWidgetState extends State<NewsWidget> {
         itemCount: newsItems.length,
         itemBuilder: (context, index) {
           var item = newsItems[index];
-          return RowWidget(newItem: item);
+          return RowWidget(
+            newItem: item,
+          ); //RowWidget(newItem: item);
         },
       ),
     );
