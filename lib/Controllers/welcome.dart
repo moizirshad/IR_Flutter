@@ -12,8 +12,6 @@ import 'package:ir_app/Controllers/overview.dart';
 import 'package:ir_app/Controllers/profile.dart';
 import 'package:ir_app/Controllers/ratios.dart';
 import 'package:ir_app/Controllers/settings.dart';
-// import 'package:ir_app/Controllers/share_app.dart';
-// import 'package:ir_app/Controllers/splash.dart';
 import 'package:ir_app/Controllers/webview_page.dart';
 import 'package:share/share.dart';
 
@@ -102,7 +100,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
 
   Widget _listBuilder() {
     return Container(
-      color: Colors.white,
+      color: primaryColor,
       child: ListView.builder(
           itemCount: this.menuList.length + 1,
           itemBuilder: (context, index) {

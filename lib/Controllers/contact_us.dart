@@ -31,7 +31,6 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      // padding: const EdgeInsets.fromLTRB(8.0, 18.0, 8.0, 18.0),
       child: Column(
         children: [
           SizedBox(
@@ -95,4 +94,4 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
       ),
     );
   }
-}
+} 
