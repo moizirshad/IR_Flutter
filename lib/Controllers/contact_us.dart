@@ -30,8 +30,8 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(8.0, 18.0, 8.0, 18.0),
+    return SafeArea(
+      // padding: const EdgeInsets.fromLTRB(8.0, 18.0, 8.0, 18.0),
       child: Column(
         children: [
           SizedBox(
@@ -62,32 +62,35 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
           ContactWidget(contactUsItem: this.contactUsItems[1]),
           ContactWidget(contactUsItem: this.contactUsItems[2]),
           ContactWidget(contactUsItem: this.contactUsItems[3]),
-          SizedBox(
-            height: 100.0,
-          ),
-          Container(
-              height: 60.0,
-              child: RaisedButton(
-                onPressed: () {},
+          Expanded(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
                 color: primaryColor,
-                child: Center(
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.forward_to_inbox,
-                        color: Colors.white,
-                        size: 30.0,
-                      ),
-                      SizedBox(width: 6),
-                      Text("Feedback",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.0,
-                          )),
-                    ],
+                height: 60.0,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Center(
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.forward_to_inbox,
+                          color: Colors.white,
+                          size: 30.0,
+                        ),
+                        SizedBox(width: 6),
+                        Text("Feedback",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                            )),
+                      ],
+                    ),
                   ),
                 ),
-              ))
+              ),
+            ),
+          )
         ],
       ),
     );
