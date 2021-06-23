@@ -11,7 +11,7 @@ Color buttonDisableColor = Color(0xffC7DCC5);
 Color menuFooterBG = Color(0xffFBFBFB);
 Color eventsCellBackgroundColor = Color(0xff295135);
 Color lightGreyTextColor = Colors.grey[400];
-
+const light_grey_background = Color(0xededed);
 
 const primary_background_one = Color(0xFFEEEEEE);
 const primary_background_two = Color(0xFF2B2E3D);
@@ -31,7 +31,6 @@ const white_background = Color(0xFFFFFFFF);
 const black_background = Color(0xFF000000);
 const orange_border = Color(0xFFF58026);
 const light_blue_background = Color(0xFF2B2E3D);
-const light_grey_background = Color(0xFFD3D3D3);
 
 const white_text = Color(0xFFFFFFFF);
 const black_text = Color(0xFF000000);

@@ -66,6 +66,7 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
               alignment: Alignment.bottomCenter,
               child: ConstrainedBox(
                 constraints: BoxConstraints.tightFor(
+                    // width: 400,
                     width: (MediaQuery.of(context).size.width) - 16,
                     height: 60),
                 child: ElevatedButton.icon(
