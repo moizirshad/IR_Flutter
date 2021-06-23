@@ -64,28 +64,23 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
           Expanded(
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: Container(
-                color: primaryColor,
-                height: 60.0,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Center(
-                    child: Row(
-                      children: <Widget>[
-                        Icon(
-                          Icons.forward_to_inbox,
-                          color: Colors.white,
-                          size: 30.0,
-                        ),
-                        SizedBox(width: 6),
-                        Text("Feedback",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20.0,
-                            )),
-                      ],
-                    ),
+              child: ConstrainedBox(
+                constraints: BoxConstraints.tightFor(
+                    width: (MediaQuery.of(context).size.width) - 16,
+                    height: 60),
+                child: ElevatedButton.icon(
+                  icon: Icon(
+                    Icons.forward_to_inbox,
+                    color: Colors.white,
+                    size: 44.0,
                   ),
+                  label: Text(
+                    'Feedback',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                  ),
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(primary: primaryColor),
                 ),
               ),
             ),
@@ -94,4 +89,4 @@ class _ContactUsWidgetState extends State<ContactUsWidget> {
       ),
     );
   }
-} 
+}
