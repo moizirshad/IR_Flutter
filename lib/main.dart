@@ -16,9 +16,11 @@ void main() {
       '/overview': (context) => OverViewWidget(),
       '/profile': (context) => ProfileWidget(),
     },
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(
       backgroundColor: bgColor,
       primaryColor: primaryColor,
+
     ),
   ));
 }

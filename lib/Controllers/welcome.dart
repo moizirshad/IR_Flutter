@@ -40,6 +40,10 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
     'Share App'
   ];
 
+  final icons = [Icons.ac_unit, Icons.access_alarm, Icons.access_time,Icons.access_time,Icons.access_time,Icons.access_time,
+    Icons.access_time,Icons.access_time,Icons.access_time,Icons.access_time,Icons.access_time,Icons.access_time,Icons.access_time,Icons.access_time];
+
+
   List<Widget> controllers = <Widget>[
     OverViewWidget(),
     ProfileWidget(),
@@ -111,7 +115,8 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
             }
             return ListTile(
               tileColor: primaryColor,
-              leading: Icon(Icons.settings, color: Colors.white),
+              leading: Icon(icons[index-1],color: Colors.blueGrey),
+             // leading: Icon(Icons.settings, color: Colors.white),
               onTap: () {
                 if (index == this.menuList.length) {
                   Share.share("App Share Link");

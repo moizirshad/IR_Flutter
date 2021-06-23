@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ir_app/Controllers/board_members.dart';
 import 'package:ir_app/Controllers/ratios.dart';
+import 'board_members.dart';
+
+
+
 
 class BoardManagementWidget extends StatefulWidget {
   @override
@@ -13,15 +16,20 @@ class _BoardManagementWidgetState extends State<BoardManagementWidget> {
     super.initState();
 
     print('init board managment');
+
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
+
       child: DefaultTabController(
         length: 2,
         child: Scaffold(
-          backgroundColor: Colors.green[600],
+          backgroundColor: Colors.green[900],
           appBar: TabBar(
             indicatorColor: Colors.white,
             tabs: [
@@ -47,12 +55,13 @@ class _BoardManagementWidgetState extends State<BoardManagementWidget> {
           ),
           body: TabBarView(
             children: [
-              BoardMembersListWidget(),
-              RatiosWidget(),
+              BoardMembersListWidget("boardmember"),
+              BoardMembersListWidget("exec"),
             ],
           ),
         ),
       ),
     );
+
   }
 }
