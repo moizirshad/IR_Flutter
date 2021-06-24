@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ir_app/Constants/constants.dart';
+import 'package:ir_app/Controllers/overview.dart';
+import 'package:ir_app/Widgets/overview_management_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:ir_app/Models/news_item.dart';
+import 'package:ir_app/Widgets/row_widget.dart';
 
 class StatisticsWidget extends StatefulWidget {
   StatisticsWidget({Key key, this.title}) : super(key: key);
@@ -23,13 +27,64 @@ class _StatisticsWidgetState extends State<StatisticsWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: [
-          _topHeader(),
-          _webViewContainer(chartURL, 300),
-          _tabBar(),
-        ],
+      child: _webViewContainer(chartURL, 300),
+    );
+  }
+
+  Widget _webViewContainer(String url, double height) {
+    return Container(
+      //for graph
+      height: height,
+      decoration: BoxDecoration(color: Colors.amber),
+      child: WebView(
+        initialUrl: url,
+        javascriptMode: JavascriptMode.unrestricted,
+        onPageFinished: (finish) {
+          setState(() {
+            isLoading = false;
+          });
+        },
       ),
+    );
+  }
+}
+
+class ManagmentTabWidget extends StatefulWidget {
+  ManagmentTabWidget({Key key}) : super(key: key);
+
+  @override
+  _ManagmentTabWidgetState createState() => _ManagmentTabWidgetState();
+}
+
+class _ManagmentTabWidgetState extends State<ManagmentTabWidget> {
+  List<New> marketData = [
+    new New('11/2/20', 'Last Trade', '20.54'),
+    new New('11/2/20', 'Change ', '34'),
+    new New('11/2/20', 'Open', '10'),
+    new New('11/2/20', 'Low ', '40'),
+    new New('11/2/20', 'High ', '80'),
+    new New('11/2/20', 'Change ', '67'),
+    new New('11/2/20', 'Change ', '678'),
+    new New('11/2/20', 'Volumn ', '78'),
+    new New('11/2/20', 'Turnover ', '23'),
+    new New('11/2/20', 'Transactions ', '8640'),
+    new New('11/2/20', 'Market Value ', '34'),
+    new New('11/2/20', 'Average Volumn (12M)% ', '345'),
+    new New('11/2/20', 'Avg Turnover (12M)%', '233.2'),
+    new New('11/2/20', 'Avg Transactions ', '64.4'),
+    new New('11/2/20', 'Change (12M)% ', '34.4'),
+    new New('11/2/20', 'YTD % ', '154.4'),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: _tabBar(),
     );
   }
 
@@ -65,163 +120,30 @@ class _StatisticsWidgetState extends State<StatisticsWidget> {
           ),
           body: TabBarView(
             children: [
-              Text('ssdsd'),
-              Text('yahoo'),
+              Container(
+                decoration: BoxDecoration(color: Colors.white),
+                child: ListView.builder(
+                  itemCount: this.marketData.length,
+                  itemBuilder: (context, index) {
+                    var item = this.marketData[index];
+                    return OverviewData(newItem: item);
+                  },
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(color: Colors.white),
+                child: ListView.builder(
+                  itemCount: this.marketData.length,
+                  itemBuilder: (context, index) {
+                    var item = this.marketData[index];
+                    return OverviewData(newItem: item);
+                  },
+                ),
+              ),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Widget _webViewContainer(String url, double height) {
-    return Container(
-      //for graph
-      height: height,
-      decoration: BoxDecoration(color: Colors.amber),
-      child: WebView(
-        initialUrl: url,
-        javascriptMode: JavascriptMode.unrestricted,
-        onPageFinished: (finish) {
-          setState(() {
-            isLoading = false;
-          });
-        },
-      ),
-    );
-  }
-
-  Widget _topHeader() {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(color: Colors.green[50]),
-          height: 40.0,
-          child: Center(
-            child: Text(
-              'Saudi Re for Cooperative Reinsurance Co.',
-              style: TextStyle(
-                  fontSize: 16.0,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none),
-            ),
-          ),
-        ),
-        Divider(
-          height: 1.0,
-          color: Colors.grey,
-        ),
-        Container(
-          decoration: BoxDecoration(color: Colors.green[50]),
-          height: 60.0,
-          child: Row(
-            children: [
-              Expanded(
-                  child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        '11.20',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        'Last',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.grey[800],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )),
-              VerticalDivider(
-                width: 1.0,
-                color: Colors.grey,
-              ),
-              Expanded(
-                  child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.arrow_circle_up,
-                            color: Colors.green[300],
-                          ),
-                          SizedBox(
-                            width: 5.0,
-                          ),
-                          Text(
-                            '0.14',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green[300],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'Change',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.grey[800],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )),
-              VerticalDivider(
-                width: 1.0,
-                color: Colors.grey,
-              ),
-              Expanded(
-                  child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        '11.20',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Text(
-                        'Change',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.grey[800],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )),
-            ],
-          ),
-        ),
-        Divider(
-          height: 1.0,
-          color: Colors.grey,
-        )
-      ],
     );
   }
 }
