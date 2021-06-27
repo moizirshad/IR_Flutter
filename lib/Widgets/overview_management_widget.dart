@@ -28,9 +28,9 @@ class _OverviewDataState extends State<OverviewData> {
         ),
         child: ListTile(
           leading: Text(this.newItem.textContent,
-              style: TextStyle(color: Colors.black, fontSize: 20.0)),
+              style: TextStyle(color: Colors.black, fontSize: 16.0)),
           trailing: Text(this.newItem.source,
-              style: TextStyle(color: Colors.black, fontSize: 20.0)),
+              style: TextStyle(color: Colors.black, fontSize: 16.0)),
         ));
   }
 }

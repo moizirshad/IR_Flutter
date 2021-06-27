@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ir_app/Constants/constants.dart';
-import 'package:ir_app/Controllers/overview.dart';
 import 'package:ir_app/Widgets/overview_management_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:ir_app/Models/news_item.dart';
-import 'package:ir_app/Widgets/row_widget.dart';
 
 class StatisticsWidget extends StatefulWidget {
   StatisticsWidget({Key key, this.title}) : super(key: key);
@@ -50,35 +48,22 @@ class _StatisticsWidgetState extends State<StatisticsWidget> {
 }
 
 class ManagmentTabWidget extends StatefulWidget {
-  ManagmentTabWidget({Key key}) : super(key: key);
+  ManagmentTabWidget({Key key, this.marketData}) : super(key: key);
+
+  final List<New> marketData;
 
   @override
   _ManagmentTabWidgetState createState() => _ManagmentTabWidgetState();
 }
 
 class _ManagmentTabWidgetState extends State<ManagmentTabWidget> {
-  List<New> marketData = [
-    new New('11/2/20', 'Last Trade', '20.54'),
-    new New('11/2/20', 'Change ', '34'),
-    new New('11/2/20', 'Open', '10'),
-    new New('11/2/20', 'Low ', '40'),
-    new New('11/2/20', 'High ', '80'),
-    new New('11/2/20', 'Change ', '67'),
-    new New('11/2/20', 'Change ', '678'),
-    new New('11/2/20', 'Volumn ', '78'),
-    new New('11/2/20', 'Turnover ', '23'),
-    new New('11/2/20', 'Transactions ', '8640'),
-    new New('11/2/20', 'Market Value ', '34'),
-    new New('11/2/20', 'Average Volumn (12M)% ', '345'),
-    new New('11/2/20', 'Avg Turnover (12M)%', '233.2'),
-    new New('11/2/20', 'Avg Transactions ', '64.4'),
-    new New('11/2/20', 'Change (12M)% ', '34.4'),
-    new New('11/2/20', 'YTD % ', '154.4'),
-  ];
+  List<New> marketData = [];
 
   @override
   void initState() {
     super.initState();
+
+    this.marketData = widget.marketData;
   }
 
   @override

@@ -144,7 +144,7 @@ class _OverViewWidgetState extends State<OverViewWidget> {
           onTap: () {
             print('click cell item. -> section:$section row:$row');
           },
-          child: ManagmentTabWidget());
+          child: ManagmentTabWidget(marketData: this.marketData));
     } else if (section == 3) {
       return InkWell(
           onTap: () {
@@ -177,7 +177,7 @@ class _OverViewWidgetState extends State<OverViewWidget> {
     } else if (section == 1) {
       return 104.0;
     } else if (section == 2) {
-      return 600.0;
+      return this.marketData.length * 60.0;
     } else if (section == 3) {
       return 104.0;
     }
