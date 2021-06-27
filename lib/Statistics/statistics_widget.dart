@@ -33,7 +33,6 @@ class _StatisticsWidgetState extends State<StatisticsWidget> {
     return Container(
       //for graph
       height: height,
-      decoration: BoxDecoration(color: Colors.amber),
       child: WebView(
         initialUrl: url,
         javascriptMode: JavascriptMode.unrestricted,

@@ -202,84 +202,49 @@ class _OverViewWidgetState extends State<OverViewWidget> {
   }
 
   Widget overViewHeader() {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(color: Colors.green[50]),
-          height: 40.0,
-          child: Center(
-            child: Text(
-              'Saudi Re for Cooperative Reinsurance Co.',
-              style: TextStyle(
-                  fontSize: 16.0,
-                  color: black_text,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none),
+    return Container(
+      decoration: BoxDecoration(color: Colors.green[50]),
+      child: Column(
+        children: [
+          Container(
+            height: 40.0,
+            child: Center(
+              child: Text(
+                'Saudi Re for Cooperative Reinsurance Co.',
+                style: TextStyle(
+                    fontSize: 16.0,
+                    color: black_text,
+                    fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none),
+              ),
             ),
           ),
-        ),
-        Divider(
-          height: 1.0,
-          color: Colors.grey,
-        ),
-        Container(
-          decoration: BoxDecoration(color: Colors.green[50]),
-          height: 60.0,
-          child: Row(
-            children: [
-              Expanded(
-                  child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        '11.20',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                          color: black_text,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5.0,
-                      ),
-                      Text(
-                        'Last',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.grey[800],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )),
-              VerticalDivider(
-                width: 1.0,
-                color: Colors.grey,
-              ),
-              Expanded(
-                  child: Container(
-                child: Padding(
+          Divider(
+            height: 1.0,
+            color: Colors.grey,
+          ),
+          Container(
+            height: 60.0,
+            child: Row(
+              children: [
+                Expanded(
+                    child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
                       Row(
-                        children: [
-                          Icon(
-                            Icons.arrow_circle_up,
-                            color: Colors.green[300],
-                          ),
-                          SizedBox(
-                            width: 5.0,
-                          ),
-                          Text(
-                            '0.14',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green[300],
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Text(
+                              '0.14',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green[300],
+                              ),
                             ),
                           ),
                         ],
@@ -293,46 +258,73 @@ class _OverViewWidgetState extends State<OverViewWidget> {
                       ),
                     ],
                   ),
+                )),
+                VerticalDivider(
+                  width: 1.0,
+                  color: Colors.grey,
                 ),
-              )),
-              VerticalDivider(
-                width: 1.0,
-                color: Colors.grey,
-              ),
-              Expanded(
-                  child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        '11.20',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Text(
-                        'Change',
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.grey[800],
-                        ),
-                      )
-                    ],
+                change('up'),
+                VerticalDivider(
+                  width: 1.0,
+                  color: Colors.grey,
+                ),
+                change('low'),
+              ],
+            ),
+          ),
+          Divider(
+            height: 1.0,
+            color: Colors.grey,
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget change(String changeType) {
+    Widget changeWidget;
+    Color changeColor;
+
+    if (changeType == 'up') {
+      changeColor = Colors.green[300];
+      changeWidget = Icon(Icons.arrow_circle_up, color: changeColor);
+    } else if (changeType == 'low') {
+      changeColor = Colors.red;
+      changeWidget = Icon(Icons.arrow_circle_down, color: changeColor);
+    }
+
+    return Expanded(
+        child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Text(
+                  '0.14',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: changeColor,
                   ),
                 ),
-              )),
+              ),
+              changeWidget,
             ],
           ),
-        ),
-        Divider(
-          height: 1.0,
-          color: Colors.grey,
-        )
-      ],
-    );
+          Text(
+            'Change',
+            style: TextStyle(
+              fontSize: 14.0,
+              color: Colors.grey[800],
+            ),
+          ),
+        ],
+      ),
+    ));
   }
 }
 
