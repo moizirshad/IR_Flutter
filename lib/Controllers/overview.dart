@@ -70,11 +70,11 @@ class _OverViewWidgetState extends State<OverViewWidget> {
     if (section == 0) {
       return 1;
     } else if (section == 1) {
-      return newsItems.length;
+      return newsItems.length > 3 ? 4 : newsItems.length;
     } else if (section == 2) {
       return 1;
     } else if (section == 3) {
-      return newsItems.length;
+      return newsItems.length > 3 ? 4 : newsItems.length;
     }
     return 0;
   }
@@ -134,11 +134,19 @@ class _OverViewWidgetState extends State<OverViewWidget> {
           },
           child: StatisticsWidget());
     } else if (section == 1) {
-      return InkWell(
-          onTap: () {
-            print('click cell item. -> section:$section row:$row');
-          },
-          child: newsRow(row));
+      if (row == 3) {
+        return InkWell(
+            onTap: () {
+              print('click cell item. -> section:$section row:$row');
+            },
+            child: moreRow('News Controller'));
+      } else {
+        return InkWell(
+            onTap: () {
+              print('click cell item. -> section:$section row:$row');
+            },
+            child: newsRow(row));
+      }
     } else if (section == 2) {
       return InkWell(
           onTap: () {
@@ -146,11 +154,19 @@ class _OverViewWidgetState extends State<OverViewWidget> {
           },
           child: ManagmentTabWidget(marketData: this.marketData));
     } else if (section == 3) {
-      return InkWell(
-          onTap: () {
-            print('click cell item. -> section:$section row:$row');
-          },
-          child: newsRow(row));
+      if (row == 3) {
+        return InkWell(
+            onTap: () {
+              print('click cell item. -> section:$section row:$row');
+            },
+            child: moreRow('Analytics'));
+      } else {
+        return InkWell(
+            onTap: () {
+              print('click cell item. -> section:$section row:$row');
+            },
+            child: newsRow(row));
+      }
     }
     return InkWell(
         onTap: () {
@@ -175,11 +191,11 @@ class _OverViewWidgetState extends State<OverViewWidget> {
     if (section == 0) {
       return 300.0;
     } else if (section == 1) {
-      return 104.0;
+      return row == 3 ? 44 : 104.0;
     } else if (section == 2) {
       return this.marketData.length * 60.0;
     } else if (section == 3) {
-      return 104.0;
+      return row == 3 ? 44 : 104.0;
     }
 
     return 0;
@@ -198,6 +214,21 @@ class _OverViewWidgetState extends State<OverViewWidget> {
       child: RowWidget(
         newItem: newsItems[row],
       ),
+    );
+  }
+
+  Widget moreRow(String controllerName) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(primary: Colors.grey[400]),
+      child: Image(
+        height: 44.0,
+        image: AssetImage(
+          'assets/logo.png',
+        ),
+      ),
+      onPressed: () {
+        print('more to $controllerName');
+      },
     );
   }
 
@@ -243,17 +274,17 @@ class _OverViewWidgetState extends State<OverViewWidget> {
                               style: TextStyle(
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.green[300],
+                                color: black_text,
                               ),
                             ),
                           ),
                         ],
                       ),
                       Text(
-                        'Change',
+                        'Last',
                         style: TextStyle(
                           fontSize: 14.0,
-                          color: Colors.grey[800],
+                          color: black_text,
                         ),
                       ),
                     ],
@@ -263,12 +294,12 @@ class _OverViewWidgetState extends State<OverViewWidget> {
                   width: 1.0,
                   color: Colors.grey,
                 ),
-                change('up'),
+                change('up', '18.5'),
                 VerticalDivider(
                   width: 1.0,
                   color: Colors.grey,
                 ),
-                change('low'),
+                change('low', '10.4'),
               ],
             ),
           ),
@@ -281,7 +312,7 @@ class _OverViewWidgetState extends State<OverViewWidget> {
     );
   }
 
-  Widget change(String changeType) {
+  Widget change(String changeType, String value) {
     Widget changeWidget;
     Color changeColor;
 
@@ -304,7 +335,7 @@ class _OverViewWidgetState extends State<OverViewWidget> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
-                  '0.14',
+                  value,
                   style: TextStyle(
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
