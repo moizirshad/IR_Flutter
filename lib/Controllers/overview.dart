@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:ir_app/APIHelper/api_helper.dart';
 import 'package:ir_app/Statistics/statistics_widget.dart';
 import 'package:ir_app/Models/news_item.dart';
 import 'package:ir_app/Widgets/row_widget.dart';
 import 'package:flutter_tableview/flutter_tableview.dart';
 import 'package:ir_app/Constants/colors.dart';
+import 'package:ir_app/APIHelper/api_helper.dart';
+import 'package:ir_app/APIHelper/api_paths.dart';
+import 'package:ir_app/Models/base_response.dart';
+import 'package:ir_app/Models/company_chart_item.dart';
 
 class OverViewWidget extends StatefulWidget {
   @override
@@ -132,7 +137,7 @@ class _OverViewWidgetState extends State<OverViewWidget> {
           onTap: () {
             print('click cell item. -> section:$section row:$row');
           },
-          child: StatisticsWidget());
+          child: getChartData()); // StatisticsWidget());
     } else if (section == 1) {
       if (row == 3) {
         return InkWell(
@@ -359,19 +364,68 @@ class _OverViewWidgetState extends State<OverViewWidget> {
   }
 }
 
-class DecoratedContainer extends StatefulWidget {
-  DecoratedContainer({Key key}) : super(key: key);
+// class getChartData extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return FutureBuilder(
+//       future: APIHelper.shared.hitGetAPI({}, apiCompanyChart),
+//       builder: (context, snapshot) {
+//         if (snapshot.hasData) {
+//           print("snapshot.data == $snapshot.data");
+//           // mapping
+//           return RowWidget();
+//         } else {
+//           return RowWidget();
+//         }
+//       },
+//     );
+//     /* return FutureBuilder(
+//       future: ServiceHelper.apiCall(context, ApiUrls.CompanyChart),
+//       builder: (context, snapshot) {
+//         if (snapshot.hasData) {
+//           var responseApi = CompanyChartEnt().getData(snapshot.data);
+//           return WebViewWidget(responseApi.ChartUrlEn.toString(), true);
+//         } else {
+//           return CircularProgressBar();
+//         }
+//       },
+//     );*/
+//   }
+// }
+
+class getChartData extends StatefulWidget {
+  getChartData({Key key}) : super(key: key);
 
   @override
-  _DecoratedContainerState createState() => _DecoratedContainerState();
+  _getChartDataState createState() => _getChartDataState();
 }
 
-class _DecoratedContainerState extends State<DecoratedContainer> {
+class _getChartDataState extends State<getChartData> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print("createdgetChartData");
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: Colors.green[50]),
-      child: null,
+    return FutureBuilder(
+      future: APIHelper.shared.hitGetAPI({}, apiCompanyChart),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          var responseApi = CompanyChartItem().getData(snapshot.data);
+
+          print("aasna  $responseApi");
+          return StatisticsWidget(
+            title: 'htttp://google.com',
+          ); //WebViewWidget(responseApi.ChartUrlEn.toString(), true);
+        } else {
+          print("aasna has no data   $snapshot");
+
+          return Container(); //CircularProgressBar();
+        }
+      },
     );
   }
 }
