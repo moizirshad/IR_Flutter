@@ -7,6 +7,7 @@ import 'package:ir_app/Widgets/MajorStackholderWidgets/stackholder_widget.dart';
 import 'package:ir_app/Widgets/row_widget.dart';
 import 'package:ir_app/Widgets/overview_management_widget.dart';
 import 'package:ir_app/Widgets/Profile/CustomCard.dart';
+import 'package:ir_app/Widgets/header_widget.dart';
 
 class ProfileWidget extends StatefulWidget {
   @override
@@ -125,17 +126,18 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   // Section header widget builder.
   Widget _sectionHeaderBuilder(BuildContext context, int section) {
     Widget headerWidget;
+    String text = sectionsText[section];
 
     if (section == 2) {
-      headerWidget = financialHeaderWidget(sectionsText[section]);
+      headerWidget = financialHeaderWidget(text);
     } else if (section == 4) {
       //stackholders
-      headerWidget = stackholderHeaderWidget(sectionsText[section]);
+      headerWidget = stackholderHeaderWidget(text);
     } else if (section == 5) {
       //subsidiaries
-      headerWidget = subsidiariesHeaderWidget(sectionsText[section]);
+      headerWidget = subsidiariesHeaderWidget(text);
     } else {
-      headerWidget = genericHeaderWidget(sectionsText[section]);
+      headerWidget = HeaderWidget(titleText: text);
     }
 
     return InkWell(
@@ -293,34 +295,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   }
 
   //Header Widgets
-  Widget genericHeaderWidget(String text) {
-    return Container(
-      alignment: Alignment.centerLeft,
-      padding: EdgeInsets.only(left: 16.0),
-      color: Colors.grey[400].withOpacity(0.3),
-      height: 100,
-      child: Text(
-        text,
-        style: TextStyle(
-            fontSize: 16, fontWeight: FontWeight.bold, color: black_text),
-      ),
-    );
-  }
-
   Widget financialHeaderWidget(String text) {
     return Column(
       children: [
         Container(
-          alignment: Alignment.centerLeft,
-          padding: EdgeInsets.only(left: 16.0),
-          color: Colors.grey[400].withOpacity(0.3),
-          height: 50,
-          child: Text(
-            text,
-            style: TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold, color: black_text),
-          ),
-        ),
+            height: 50,
+            child: HeaderWidget(
+              titleText: text,
+            )),
         Container(
           alignment: Alignment.centerLeft,
           padding: EdgeInsets.only(left: 16.0, top: 8),
@@ -370,16 +352,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     return Column(
       children: [
         Container(
-          alignment: Alignment.centerLeft,
-          padding: EdgeInsets.only(left: 16.0),
-          color: Colors.grey[400].withOpacity(0.3),
-          height: 50,
-          child: Text(
-            text,
-            style: TextStyle(
-                fontSize: 16, fontWeight: FontWeight.bold, color: black_text),
-          ),
-        ),
+            height: 50,
+            child: HeaderWidget(
+              titleText: text,
+            )),
         Container(
           alignment: Alignment.centerLeft,
           padding: EdgeInsets.only(left: 16.0, top: 8),
@@ -440,14 +416,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   Widget subsidiariesHeaderWidget(String text) {
     return Column(children: [
       Container(
-        alignment: Alignment.centerLeft,
-        padding: EdgeInsets.only(left: 16.0),
-        color: Colors.grey[400].withOpacity(0.3),
         height: 50,
-        child: Text(
-          text,
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold, color: black_text),
+        child: HeaderWidget(
+          titleText: text,
         ),
       ),
       Container(

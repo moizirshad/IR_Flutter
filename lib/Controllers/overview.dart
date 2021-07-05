@@ -11,6 +11,7 @@ import 'package:ir_app/Models/base_response.dart';
 import 'package:ir_app/Models/company_chart_item.dart';
 import 'dart:convert';
 import 'package:ir_app/Models/BoardMembers.dart';
+import 'package:ir_app/Widgets/header_widget.dart';
 
 class OverViewWidget extends StatefulWidget {
   @override
@@ -106,29 +107,21 @@ class _OverViewWidgetState extends State<OverViewWidget> {
 
   // Section header widget builder.
   Widget _sectionHeaderBuilder(BuildContext context, int section) {
+    Widget sectionHeaderWidget;
+
     if (section == 0) {
-      return InkWell(
-        onTap: () {
-          print('click section header. -> section:$section');
-        },
-        child: overViewHeader(),
+      sectionHeaderWidget = overViewHeader();
+    } else {
+      sectionHeaderWidget = HeaderWidget(
+        titleText: sectionsText[section],
       );
     }
+
     return InkWell(
       onTap: () {
         print('click section header. -> section:$section');
       },
-      child: Container(
-        alignment: Alignment.centerLeft,
-        padding: EdgeInsets.only(left: 16.0),
-        color: Colors.grey[400].withOpacity(0.3),
-        height: 100,
-        child: Text(
-          sectionsText[section],
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.bold, color: black_text),
-        ),
-      ),
+      child: sectionHeaderWidget,
     );
   }
 
@@ -227,12 +220,7 @@ class _OverViewWidgetState extends State<OverViewWidget> {
   Widget moreRow(String controllerName) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(primary: Colors.grey[400]),
-      child: Image(
-        height: 44.0,
-        image: AssetImage(
-          'assets/logo.png',
-        ),
-      ),
+      child: Text("More"),
       onPressed: () {
         print('more to $controllerName');
       },
