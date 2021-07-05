@@ -9,6 +9,8 @@ import 'package:ir_app/APIHelper/api_helper.dart';
 import 'package:ir_app/APIHelper/api_paths.dart';
 import 'package:ir_app/Models/base_response.dart';
 import 'package:ir_app/Models/company_chart_item.dart';
+import 'dart:convert';
+import 'package:ir_app/Models/BoardMembers.dart';
 
 class OverViewWidget extends StatefulWidget {
   @override
@@ -401,6 +403,8 @@ class getChartData extends StatefulWidget {
 }
 
 class _getChartDataState extends State<getChartData> {
+  Future<List<Data>> futureData;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -411,7 +415,7 @@ class _getChartDataState extends State<getChartData> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: APIHelper.shared.hitGetAPI({}, apiCompanyChart),
+      future: fetchData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           var responseApi = CompanyChartItem().getData(snapshot.data);
@@ -423,9 +427,21 @@ class _getChartDataState extends State<getChartData> {
         } else {
           print("aasna has no data   $snapshot");
 
-          return Container(); //CircularProgressBar();
+          return CircularProgressIndicator();
         }
       },
     );
+  }
+
+  Future<List<Data>> fetchData() async {
+    final response = await APIHelper.shared.hitPostAPI({}, apiBoardMembers, {});
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> parsed = json.decode(response.body);
+
+      return List<Data>.from(parsed["Data"].map((x) => Data.fromJson(x)));
+    } else {
+      throw Exception('Unexpected error occured!');
+    }
   }
 }
