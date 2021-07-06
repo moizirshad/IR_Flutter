@@ -17,7 +17,6 @@ class _WebViewPageWidgetState extends State<WebViewPageWidget> {
   @override
   void initState() {
     super.initState();
-    print("object");
     this.url = widget.title;
   }
 

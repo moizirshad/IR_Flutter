@@ -17,7 +17,6 @@ class _ContactWidgetState extends State<ContactWidget> {
   @override
   void initState() {
     super.initState();
-    print("object");
     this.contactUsItem = widget.contactUsItem;
   }
 

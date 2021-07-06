@@ -18,7 +18,6 @@ class _MemberWidgetState extends State<MemberWidget> {
   @override
   void initState() {
     super.initState();
-    print("object");
     this.memberItem = widget.memberItem;
   }
 

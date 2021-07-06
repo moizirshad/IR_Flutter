@@ -15,7 +15,6 @@ class _OverviewDataState extends State<OverviewData> {
   @override
   void initState() {
     super.initState();
-    print("object");
     this.newItem = widget.newItem;
   }
 

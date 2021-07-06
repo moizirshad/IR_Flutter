@@ -15,7 +15,6 @@ class _RowWidgetState extends State<RowWidget> {
   @override
   void initState() {
     super.initState();
-    print("object");
     this.newItem = widget.newItem;
   }
 
