@@ -10,7 +10,7 @@ Color buttonActiveColor = Color(0xff295135);
 Color buttonDisableColor = Color(0xffC7DCC5);
 Color menuFooterBG = Color(0xffFBFBFB);
 Color eventsCellBackgroundColor = Color(0xff295135);
-Color lightGreyTextColor = Colors.grey[400];
+Color lightGreyTextColor = Colors.grey[400]!;
 const light_grey_background = Color(0xededed);
 
 const primary_background_one = Color(0xFFEEEEEE);

@@ -4,7 +4,7 @@ import 'package:ir_app/Models/member_item.dart';
 
 //RowWidget
 class MemberWidget extends StatefulWidget {
-  MemberWidget({Key key, this.memberItem}) : super(key: key);
+  MemberWidget({Key? key,required this.memberItem}) : super(key: key);
 
   final Member memberItem;
 
@@ -13,7 +13,7 @@ class MemberWidget extends StatefulWidget {
 }
 
 class _MemberWidgetState extends State<MemberWidget> {
-  Member memberItem;
+  Member? memberItem;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class _MemberWidgetState extends State<MemberWidget> {
             title: Transform(
                 transform: Matrix4.translationValues(-30, 0.0, 0.0),
                 child: Text(
-                  this.memberItem.nameString,
+                  this.memberItem!.nameString!,
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -37,7 +37,7 @@ class _MemberWidgetState extends State<MemberWidget> {
             subtitle: Transform(
                 transform: Matrix4.translationValues(-30, 0.0, 0.0),
                 child: Text(
-                  this.memberItem.designationString,
+                  this.memberItem!.designationString!,
                   style: TextStyle(
                       color: lightGreyTextColor,
                       fontWeight: FontWeight.bold,

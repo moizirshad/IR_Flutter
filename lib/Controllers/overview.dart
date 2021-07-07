@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ir_app/APIHelper/api_helper.dart';
+import 'package:ir_app/Network/api_helper.dart';
 import 'package:ir_app/Statistics/statistics_widget.dart';
 import 'package:ir_app/Models/news_item.dart';
 import 'package:ir_app/Widgets/row_widget.dart';
 import 'package:flutter_tableview/flutter_tableview.dart';
 import 'package:ir_app/Constants/colors.dart';
-import 'package:ir_app/APIHelper/api_helper.dart';
-import 'package:ir_app/APIHelper/api_paths.dart';
+import 'package:ir_app/Network/api_helper.dart';
+import 'package:ir_app/Network/api_paths.dart';
 import 'package:ir_app/Models/base_response.dart';
 import 'package:ir_app/Models/company_chart_item.dart';
 import 'dart:convert';
@@ -308,11 +308,11 @@ class _OverViewWidgetState extends State<OverViewWidget> {
   }
 
   Widget change(String changeType, String value) {
-    Widget changeWidget;
-    Color changeColor;
+    Widget? changeWidget;
+    Color? changeColor;
 
     if (changeType == 'up') {
-      changeColor = Colors.green[300];
+      changeColor = Colors.green[300]!;
       changeWidget = Icon(Icons.arrow_circle_up, color: changeColor);
     } else if (changeType == 'low') {
       changeColor = Colors.red;
@@ -338,7 +338,7 @@ class _OverViewWidgetState extends State<OverViewWidget> {
                   ),
                 ),
               ),
-              changeWidget,
+              changeWidget!,
             ],
           ),
           Text(
@@ -384,14 +384,14 @@ class _OverViewWidgetState extends State<OverViewWidget> {
 // }
 
 class getChartData extends StatefulWidget {
-  getChartData({Key key}) : super(key: key);
+  getChartData({Key? key}) : super(key: key);
 
   @override
   _getChartDataState createState() => _getChartDataState();
 }
 
 class _getChartDataState extends State<getChartData> {
-  Future<List<Data>> futureData;
+  late Future<List<Data>> futureData;
 
   @override
   void initState() {

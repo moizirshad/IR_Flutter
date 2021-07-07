@@ -1,7 +1,7 @@
 class New {
-  String dateString;
-  String textContent;
-  String source;
+  String? dateString;
+  String? textContent;
+  String? source;
 
   New(String dateString, String textContent, String source) {
     this.dateString = dateString;

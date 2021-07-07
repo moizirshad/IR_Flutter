@@ -3,7 +3,7 @@ import '../Constants/colors.dart';
 import 'package:ir_app/Models/news_item.dart';
 
 class RowWidget extends StatefulWidget {
-  RowWidget({Key key, this.newItem}) : super(key: key);
+  RowWidget({Key? key, required this.newItem}) : super(key: key);
   final New newItem;
 
   @override
@@ -11,7 +11,7 @@ class RowWidget extends StatefulWidget {
 }
 
 class _RowWidgetState extends State<RowWidget> {
-  New newItem;
+  late New newItem;
   @override
   void initState() {
     super.initState();

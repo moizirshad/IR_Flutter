@@ -4,7 +4,7 @@ import 'package:ir_app/Constants/colors.dart';
 import 'package:ir_app/Models/stackholder.dart';
 
 class StackHolderWidgt extends StatefulWidget {
-  StackHolderWidgt({Key key, this.stackholderItem}) : super(key: key);
+  StackHolderWidgt({Key? key, required this.stackholderItem}) : super(key: key!);
 
   final StackholderItem stackholderItem;
 
@@ -13,7 +13,7 @@ class StackHolderWidgt extends StatefulWidget {
 }
 
 class _StackHolderWidgtState extends State<StackHolderWidgt> {
-  StackholderItem stackholderItem;
+  late StackholderItem stackholderItem;
   @override
   void initState() {
     super.initState();
@@ -33,7 +33,7 @@ class _StackHolderWidgtState extends State<StackHolderWidgt> {
                   color: Colors.green[50],
                   border: Border.all(
                     width: 1.0,
-                    color: Colors.green[50],
+                    color: Colors.green[50]!,
                   ),
                 ),
                 padding: EdgeInsets.all(8.0),
@@ -42,7 +42,7 @@ class _StackHolderWidgtState extends State<StackHolderWidgt> {
                     Row(
                       children: [
                         Text(
-                          stackholderItem.name,
+                          stackholderItem.name!,
                           style: TextStyle(
                               fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
@@ -54,7 +54,7 @@ class _StackHolderWidgtState extends State<StackHolderWidgt> {
                     Row(
                       children: [
                         Text(
-                          stackholderItem.type,
+                          stackholderItem.type!,
                           style: TextStyle(
                               fontSize: 14.0, fontWeight: FontWeight.w500),
                         ),
@@ -67,7 +67,7 @@ class _StackHolderWidgtState extends State<StackHolderWidgt> {
                 color: Colors.white,
                 border: Border.all(
                   width: 1.0,
-                  color: Colors.green[50],
+                  color: Colors.green[50]!,
                 ),
               ),
               padding: EdgeInsets.all(8.0),
@@ -92,7 +92,7 @@ class _StackHolderWidgtState extends State<StackHolderWidgt> {
                       Row(
                         children: [
                           Text(
-                            stackholderItem.numOfShares,
+                            stackholderItem.numOfShares!,
                             style: TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.w500,
@@ -121,7 +121,7 @@ class _StackHolderWidgtState extends State<StackHolderWidgt> {
                       Row(
                         children: [
                           Text(
-                            stackholderItem.holding,
+                            stackholderItem.holding!,
                             style: TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.w500,

@@ -3,7 +3,7 @@ import 'package:ir_app/Constants/colors.dart';
 import 'package:ir_app/Models/news_item.dart';
 
 class RatioDataWidget extends StatefulWidget {
-  RatioDataWidget({Key key, this.newItem}) : super(key: key);
+  RatioDataWidget({Key? key,required this.newItem}) : super(key: key);
   final New newItem;
 
   @override
@@ -12,7 +12,7 @@ class RatioDataWidget extends StatefulWidget {
 
 class _RatioDataWidgetState extends State<RatioDataWidget> {
   @override
-  New newItem;
+  late New newItem;
   @override
   void initState() {
     super.initState();
@@ -32,7 +32,7 @@ class _RatioDataWidgetState extends State<RatioDataWidget> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 16.0),
-                        child: Text(this.newItem.textContent,
+                        child: Text(this.newItem.textContent!,
                             style:
                                 TextStyle(color: Colors.black, fontSize: 16.0)),
                       )
@@ -47,7 +47,7 @@ class _RatioDataWidgetState extends State<RatioDataWidget> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 16.0),
-                child: Text(this.newItem.source,
+                child: Text(this.newItem.source!,
                     style: TextStyle(color: Colors.black, fontSize: 16.0)),
               )
             ],

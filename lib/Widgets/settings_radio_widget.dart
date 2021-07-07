@@ -1,14 +1,17 @@
+import 'dart:core';
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 
 class RadioWidget extends StatefulWidget {
-  RadioWidget({Key key}) : super(key: key);
+  RadioWidget({Key? key}) : super(key: key);
 
   @override
   _RadioWidgetState createState() => _RadioWidgetState();
 }
 
 class _RadioWidgetState extends State<RadioWidget> {
-  int _value = 1;
+  int? _value = 1;
   List<String> strLanguage = ['English', ' العربية'];
 
   @override
@@ -22,20 +25,17 @@ class _RadioWidgetState extends State<RadioWidget> {
                 strLanguage[i],
                 style: Theme.of(context)
                     .textTheme
-                    .subtitle1
+                    .subtitle1!
                     .copyWith(color: Colors.black),
               ),
               trailing: Radio(
                 value: i,
                 groupValue: _value,
-                activeColor: Colors.teal[900],
-                onChanged: i == strLanguage.length
-                    ? null
-                    : (int value) {
-                        setState(() {
-                          _value = value;
-                        });
-                      },
+                activeColor: Colors.teal[900]!,
+                onChanged: i == strLanguage.length ? null : (int? value) {
+                  setState(() {
+                    _value = value;
+                });},
               ),
             ),
         ],
@@ -43,3 +43,4 @@ class _RadioWidgetState extends State<RadioWidget> {
     );
   }
 }
+

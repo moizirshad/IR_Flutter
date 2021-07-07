@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SideMenu extends StatefulWidget {
-  SideMenu({Key key}) : super(key: key);
+  SideMenu({Key? key}) : super(key: key);
 
   @override
   _SideMenuState createState() => _SideMenuState();

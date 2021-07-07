@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewPageWidget extends StatefulWidget {
-  WebViewPageWidget({Key key, this.title}) : super(key: key);
+  WebViewPageWidget({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -10,7 +10,7 @@ class WebViewPageWidget extends StatefulWidget {
 }
 
 class _WebViewPageWidgetState extends State<WebViewPageWidget> {
-  String url;
+  String? url;
   bool isLoading = true;
   final _key = UniqueKey();
 

@@ -5,10 +5,10 @@ String customerToJson(BaseModel data) => json.encode(data.toJson());
 
 
 class BaseModel{
-  int StatusCode;
-  String StatusMessage;
-  List<Data> data;
-  final String ErrorMessage;
+  int? StatusCode;
+  String? StatusMessage;
+  List<Data>? data;
+  final String? ErrorMessage;
 
   BaseModel({
     this.StatusCode,
@@ -27,23 +27,23 @@ class BaseModel{
   Map<String, dynamic> toJson() => {
     "StatusCode": StatusCode,
     "StatusMessage": StatusMessage,
-    "data": List<dynamic>.from(data.map((x) => x.toJson())),
+    "data": List<dynamic>.from(data!.map((x) => x.toJson())),
     "ErrorMessage": ErrorMessage,
   };
 }
 class Data {
-  final String IndividualID;
-  final String CompanyPositionTypeID;
-  final String PositionID;
-  final String NameEn;
-  final String NameAr;
-  final String PositionNameEn;
-  final String PositionNameAr;
-  final String CompanyPositionTypeNameAr;
-  final String CompanyPositionTypeNameEn;
-  final String ProfilePicURL;
-  final String DisplaySeqNo;
-  final String IsHighlighted;
+  final String? IndividualID;
+  final String? CompanyPositionTypeID;
+  final String? PositionID;
+  final String? NameEn;
+  final String? NameAr;
+  final String? PositionNameEn;
+  final String? PositionNameAr;
+  final String? CompanyPositionTypeNameAr;
+  final String? CompanyPositionTypeNameEn;
+  final String? ProfilePicURL;
+  final String? DisplaySeqNo;
+  final String? IsHighlighted;
 
   Data({
     this.IndividualID,

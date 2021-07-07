@@ -27,9 +27,9 @@ Widget ListTileWidget(List<Data> data, int index) {
   return ListTile(
       leading:CircleAvatar(
         radius: 30.0,
-        backgroundImage: NetworkImage(data[index].ProfilePicURL),
+        backgroundImage: NetworkImage(data[index].ProfilePicURL!),
         backgroundColor: Colors.transparent,
-      ),title: Text(data[index].NameEn),subtitle: Text(data[index].PositionNameEn));
+      ),title: Text(data[index].NameEn!),subtitle: Text(data[index].PositionNameEn!));
 
 }
 

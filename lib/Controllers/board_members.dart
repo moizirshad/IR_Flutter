@@ -4,18 +4,18 @@ import 'package:ir_app/Constants/constants.dart';
 import 'package:ir_app/Models/BoardMembers.dart';
 import 'package:http/http.dart' as http;
 import 'package:ir_app/Widgets/ListTileWidget/ListTileWidgett.dart';
-import 'package:ir_app/APIHelper/api_paths.dart';
+import 'package:ir_app/Network/api_paths.dart';
 
 class BoardMembersListWidget extends StatefulWidget {
   String title;
-  BoardMembersListWidget(this.title, {Key key}) : super(key: key);
+  BoardMembersListWidget(this.title, {Key? key}) : super(key: key);
 
   @override
   _BoardMembersListWidgetState createState() => _BoardMembersListWidgetState();
 }
 
 class _BoardMembersListWidgetState extends State<BoardMembersListWidget> {
-  Future<List<Data>> futureData;
+  late Future<List<Data>> futureData;
 
   Future<List<Data>> fetchData() async {
     final response = await http.post(
@@ -49,9 +49,9 @@ class _BoardMembersListWidgetState extends State<BoardMembersListWidget> {
             future: futureData,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                List<Data> data = snapshot.data;
+                List<Data>? data = snapshot.data;
                 return ListView.separated(
-                    itemCount: data.length,
+                    itemCount: data!.length,
                     separatorBuilder: (_, __) => const Divider(),
                     itemBuilder: (BuildContext context, int index) {
                       return ListTileWidgett(data, index);

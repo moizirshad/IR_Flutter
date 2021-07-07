@@ -150,7 +150,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
   // cell item widget builder.
   Widget _cellBuilder(BuildContext context, int section, int row) {
-    Widget widget;
+    Widget? widget;
 
     if (section == 0) {
       widget = Padding(
@@ -306,7 +306,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         Container(
           alignment: Alignment.centerLeft,
           padding: EdgeInsets.only(left: 16.0, top: 8),
-          color: Colors.grey[400].withOpacity(0.2),
+          color: Colors.grey[400]!.withOpacity(0.2),
           height: 30,
           child: Row(children: [
             Expanded(
@@ -341,7 +341,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           ]),
         ),
         Container(
-          color: Colors.grey[400].withOpacity(0.4),
+          color: Colors.grey[400]!.withOpacity(0.4),
           height: 1.0,
         ),
       ],
@@ -359,7 +359,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
         Container(
           alignment: Alignment.centerLeft,
           padding: EdgeInsets.only(left: 16.0, top: 8),
-          color: Colors.grey[400].withOpacity(0.2),
+          color: Colors.grey[400]!.withOpacity(0.2),
           height: 30,
           child: Row(children: [
             Expanded(
@@ -406,7 +406,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           ]),
         ),
         Container(
-          color: Colors.grey[400].withOpacity(0.4),
+          color: Colors.grey[400]!.withOpacity(0.4),
           height: 1.0,
         ),
       ],
@@ -424,7 +424,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       Container(
         alignment: Alignment.centerLeft,
         padding: EdgeInsets.only(left: 16.0, top: 8),
-        color: Colors.grey[400].withOpacity(0.2),
+        color: Colors.grey[400]!.withOpacity(0.2),
         height: 30,
         child: Row(children: [
           Expanded(

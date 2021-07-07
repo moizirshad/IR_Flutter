@@ -9,10 +9,10 @@ typedef Widget RowsWidgetCallBack(int section, int row);
 /// ----#2
 class FlutterSectionListView extends StatefulWidget {
   FlutterSectionListView({
-    this.numberOfSection,
-    @required this.numberOfRowsInSection,
-    this.sectionWidget,
-    @required this.rowWidget,
+    required this.numberOfSection,
+    required this.numberOfRowsInSection,
+    required this.sectionWidget,
+    required this.rowWidget,
   }) : assert(!(numberOfRowsInSection == null || rowWidget == null),
             'numberOfRowsInSection and rowWidget are mandatory');
 
@@ -35,7 +35,7 @@ class FlutterSectionListView extends StatefulWidget {
 
 class _FlutterSectionListViewState extends State<FlutterSectionListView> {
   /// List of total number of rows and section in each group
-  var itemList = new List<int>();
+  var itemList = <int>[];
   int itemCount = 0;
   int sectionCount = 0;
 
@@ -63,7 +63,7 @@ class _FlutterSectionListViewState extends State<FlutterSectionListView> {
 
   /// Get the total count of items in list(including both row and sections)
   int listItemCount() {
-    itemList = new List<int>();
+    itemList = <int>[];
     int rowCount = 0;
 
     for (int i = 0; i < sectionCount; i++) {
@@ -115,7 +115,7 @@ class _FlutterSectionListViewState extends State<FlutterSectionListView> {
 
 /// Helper class for indexPath of each item in list
 class IndexPath {
-  IndexPath({this.section, this.row});
+  IndexPath({required this.section,required this.row});
 
   int section = 0;
   int row = 0;

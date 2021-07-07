@@ -5,7 +5,7 @@ class SwitchedWidget extends StatefulWidget {
   // SwitchedWidget({Key key}) : super(key: key);
 
   SwitchedWidget({
-    Key key,
+    Key? key,
     this.textTitle = "",
     this.isSwitched = false,
   }) : super(key: key);

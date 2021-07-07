@@ -3,7 +3,7 @@ import '../Constants/colors.dart';
 import 'package:ir_app/Models/news_item.dart';
 
 class OverviewData extends StatefulWidget {
-  OverviewData({Key key, this.newItem}) : super(key: key);
+  OverviewData({Key? key, required this.newItem}) : super(key: key);
   final New newItem;
 
   @override
@@ -11,7 +11,7 @@ class OverviewData extends StatefulWidget {
 }
 
 class _OverviewDataState extends State<OverviewData> {
-  New newItem;
+  late New? newItem;
   @override
   void initState() {
     super.initState();
@@ -26,9 +26,9 @@ class _OverviewDataState extends State<OverviewData> {
               bottom: BorderSide(color: lightGreyTextColor.withOpacity(0.3))),
         ),
         child: ListTile(
-          leading: Text(this.newItem.textContent,
+          leading: Text(this.newItem!.textContent!,
               style: TextStyle(color: Colors.black, fontSize: 16.0)),
-          trailing: Text(this.newItem.source,
+          trailing: Text(this.newItem!.source!,
               style: TextStyle(color: Colors.black, fontSize: 14.0)),
         ));
   }

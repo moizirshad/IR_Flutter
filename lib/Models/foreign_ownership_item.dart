@@ -1,7 +1,7 @@
 class ForeignOwnershipItem {
-  String name;
-  String maxLimit;
-  String actual;
+  String? name;
+  String? maxLimit;
+  String? actual;
 
   ForeignOwnershipItem(String name, String maxLimit, String actual) {
     this.name = name;

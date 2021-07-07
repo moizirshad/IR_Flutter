@@ -3,7 +3,7 @@ import 'package:ir_app/Constants/colors.dart';
 import 'package:ir_app/Models/foreign_ownership_item.dart';
 
 class ForeignOwernershipWidget extends StatefulWidget {
-  ForeignOwernershipWidget({Key key, this.foreignOwnershipItem})
+  ForeignOwernershipWidget({Key? key, required this.foreignOwnershipItem})
       : super(key: key);
 
   final ForeignOwnershipItem foreignOwnershipItem;
@@ -14,7 +14,7 @@ class ForeignOwernershipWidget extends StatefulWidget {
 }
 
 class _ForeignOwernershipWidgetState extends State<ForeignOwernershipWidget> {
-  ForeignOwnershipItem foreignOwnershipItem;
+  late ForeignOwnershipItem foreignOwnershipItem;
   @override
   void initState() {
     super.initState();
@@ -34,7 +34,7 @@ class _ForeignOwernershipWidgetState extends State<ForeignOwernershipWidget> {
                   color: Colors.green[50],
                   border: Border.all(
                     width: 1.0,
-                    color: Colors.green[50],
+                    color: Colors.green[50]!,
                   ),
                 ),
                 padding: EdgeInsets.all(8.0),
@@ -43,7 +43,7 @@ class _ForeignOwernershipWidgetState extends State<ForeignOwernershipWidget> {
                     Row(
                       children: [
                         Text(
-                          foreignOwnershipItem.name,
+                          foreignOwnershipItem.name!,
                           style: TextStyle(
                               fontSize: 18.0, fontWeight: FontWeight.w600),
                         ),
@@ -81,7 +81,7 @@ class _ForeignOwernershipWidgetState extends State<ForeignOwernershipWidget> {
                 color: Colors.white,
                 border: Border.all(
                   width: 1.0,
-                  color: Colors.green[50],
+                  color: Colors.green[50]!,
                 ),
               ),
               padding: EdgeInsets.all(14.0),
@@ -103,7 +103,7 @@ class _ForeignOwernershipWidgetState extends State<ForeignOwernershipWidget> {
                     Row(
                       children: [
                         Text(
-                          foreignOwnershipItem.maxLimit,
+                          foreignOwnershipItem.maxLimit!,
                           style: TextStyle(
                               fontSize: 18.0,
                               fontWeight: FontWeight.w600,
@@ -121,7 +121,7 @@ class _ForeignOwernershipWidgetState extends State<ForeignOwernershipWidget> {
                       child: Row(
                         children: [
                           Text(
-                            foreignOwnershipItem.actual,
+                            foreignOwnershipItem.actual!,
                             style: TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.w600,

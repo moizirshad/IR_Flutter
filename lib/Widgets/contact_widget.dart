@@ -3,7 +3,7 @@ import '../Constants/colors.dart';
 import 'package:ir_app/Models/contact_item.dart';
 
 class ContactWidget extends StatefulWidget {
-  ContactWidget({Key key, this.contactUsItem}) : super(key: key);
+  ContactWidget({Key? key, required this.contactUsItem}) : super(key: key);
 
   final ContactUsItem contactUsItem;
 
@@ -12,7 +12,7 @@ class ContactWidget extends StatefulWidget {
 }
 
 class _ContactWidgetState extends State<ContactWidget> {
-  ContactUsItem contactUsItem;
+  ContactUsItem? contactUsItem;
 
   @override
   void initState() {
@@ -25,21 +25,21 @@ class _ContactWidgetState extends State<ContactWidget> {
     return Column(children: [
       ListTile(
           title: Text(
-            this.contactUsItem.titleString,
+            this.contactUsItem!.titleString!,
             style: TextStyle(
                 color: lightGreyTextColor,
                 fontWeight: FontWeight.normal,
                 fontSize: 16.0),
           ),
           subtitle: Text(
-            this.contactUsItem.valueString,
+            this.contactUsItem!.valueString!,
             style: TextStyle(
                 color: primaryColor,
                 fontWeight: FontWeight.normal,
                 fontSize: 18.0),
           ),
           leading: Icon(
-            this.contactUsItem.iconName,
+            this.contactUsItem!.iconName!,
             color: primaryColor,
             size: 35.0,
           )),

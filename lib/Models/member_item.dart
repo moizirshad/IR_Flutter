@@ -1,7 +1,7 @@
 class Member {
-  String nameString;
-  String designationString;
-  String profileImageString;
+  String? nameString;
+  String? designationString;
+  String? profileImageString;
   Member(
       String nameString, String designationString, String profileImageString) {
     this.nameString = nameString;

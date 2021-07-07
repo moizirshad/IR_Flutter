@@ -70,7 +70,7 @@ class _MajorShareHoldersWidgetState extends State<MajorShareHoldersWidget> {
       child: Container(
         alignment: Alignment.centerLeft,
         padding: EdgeInsets.only(left: 16.0),
-        color: Colors.grey[400].withOpacity(0.3),
+        color: Colors.grey[400]!.withOpacity(0.3),
         height: 100,
         child: Text(
           sectionsText[section],

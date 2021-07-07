@@ -5,7 +5,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'package:ir_app/Models/news_item.dart';
 
 class StatisticsWidget extends StatefulWidget {
-  StatisticsWidget({Key key, this.title}) : super(key: key);
+  StatisticsWidget({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -13,7 +13,7 @@ class StatisticsWidget extends StatefulWidget {
 }
 
 class _StatisticsWidgetState extends State<StatisticsWidget> {
-  String url;
+  late String url;
   bool isLoading = true;
 
   @override
@@ -47,7 +47,7 @@ class _StatisticsWidgetState extends State<StatisticsWidget> {
 }
 
 class ManagmentTabWidget extends StatefulWidget {
-  ManagmentTabWidget({Key key, this.marketData}) : super(key: key);
+  ManagmentTabWidget({Key? key, required this.marketData}) : super(key: key);
 
   final List<New> marketData;
 

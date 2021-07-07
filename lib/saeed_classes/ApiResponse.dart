@@ -1,15 +1,14 @@
-class BaseResponse<T extends Serializable> {
+class ApiResponse<T extends Serializable> {
   int? statusCode;
   String? statusMessage;
   T? data;
-  Null? errorMessage;
+  Null errorMessage;
 
-  BaseResponse(
-      {this.statusCode, this.statusMessage, this.data, this.errorMessage});
+  ApiResponse({this.statusCode, this.statusMessage, this.data, this.errorMessage});
 
-  factory BaseResponse.fromJson(
+  factory ApiResponse.fromJson(
       Map<String, dynamic> json, Function(Map<String, dynamic>) create) {
-    return BaseResponse<T>(
+    return ApiResponse<T>(
       statusCode: json["StatusCode"],
       statusMessage: json["StatusMessage"],
       data: create(json["Data"]),

@@ -1,8 +1,8 @@
 import 'base_response.dart';
 
 class CompanyChartItem implements Serializable {
-  String ChartUrlAr;
-  String ChartUrlEn;
+  String? ChartUrlAr;
+  String? ChartUrlEn;
 
   CompanyChartItem({this.ChartUrlAr, this.ChartUrlEn});
 

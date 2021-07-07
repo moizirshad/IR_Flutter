@@ -30,7 +30,7 @@ class ListViewHome extends StatelessWidget {
 }
 
 class ProfileStackholderWidget extends StatefulWidget {
-  ProfileStackholderWidget({Key key, this.stackholderItem}) : super(key: key);
+  ProfileStackholderWidget({Key? key,required this.stackholderItem}) : super(key: key);
   final StackholderItem stackholderItem;
 
   @override
@@ -39,7 +39,7 @@ class ProfileStackholderWidget extends StatefulWidget {
 }
 
 class _ProfileStackholderWidgetState extends State<ProfileStackholderWidget> {
-  StackholderItem stackholderItem;
+  late StackholderItem stackholderItem;
   @override
   void initState() {
     super.initState();
@@ -53,7 +53,7 @@ class _ProfileStackholderWidgetState extends State<ProfileStackholderWidget> {
       child: Row(children: [
         Expanded(
           child: Text(
-            stackholderItem.name,
+            stackholderItem.name!,
             style: TextStyle(
                 fontSize: 14.0, fontWeight: FontWeight.w500, color: black_text),
           ),
@@ -61,7 +61,7 @@ class _ProfileStackholderWidgetState extends State<ProfileStackholderWidget> {
         Container(
           width: 80.0,
           child: Text(
-            stackholderItem.numOfShares,
+            stackholderItem.numOfShares!,
             style: TextStyle(
                 fontSize: 14.0, fontWeight: FontWeight.w500, color: black_text),
           ),
@@ -70,7 +70,7 @@ class _ProfileStackholderWidgetState extends State<ProfileStackholderWidget> {
         Container(
           width: 60.0,
           child: Text(
-            stackholderItem.holding,
+            stackholderItem.holding!,
             style: TextStyle(
                 fontSize: 14.0, fontWeight: FontWeight.w500, color: black_text),
           ),

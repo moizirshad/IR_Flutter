@@ -3,7 +3,7 @@ import 'package:ir_app/Constants/constants.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebviewWidget extends StatefulWidget {
-  WebviewWidget({Key key, this.title}) : super(key: key);
+  WebviewWidget({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -11,7 +11,7 @@ class WebviewWidget extends StatefulWidget {
 }
 
 class _WebviewWidgetState extends State<WebviewWidget> {
-  String url;
+  String? url;
   bool isLoading = true;
 
   @override

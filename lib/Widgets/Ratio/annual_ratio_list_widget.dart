@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ir_app/Constants/constants.dart';
 import 'package:ir_app/Models/BoardMembers.dart';
 import 'package:http/http.dart' as http;
-import 'package:ir_app/APIHelper/api_paths.dart';
+import 'package:ir_app/Network/api_paths.dart';
 import 'package:ir_app/Constants/colors.dart';
 import 'package:flutter_tableview/flutter_tableview.dart';
 import 'package:ir_app/Models/news_item.dart';
@@ -11,7 +11,7 @@ import 'package:ir_app/Widgets/header_widget.dart';
 import 'package:ir_app/Widgets/Ratio/ratio_data_widget.dart';
 
 class AnnualRatioListWidget extends StatefulWidget {
-  AnnualRatioListWidget({Key key, this.title}) : super(key: key);
+  AnnualRatioListWidget({Key? key,required this.title}) : super(key: key);
   String title;
 
   @override
@@ -19,7 +19,7 @@ class AnnualRatioListWidget extends StatefulWidget {
 }
 
 class _AnnualRatioListWidgetState extends State<AnnualRatioListWidget> {
-  Future<List<Data>> futureData;
+  late Future<List<Data>> futureData;
   int sectionCount = 0;
 
   List<String> sectionsText = [
@@ -205,7 +205,7 @@ class _AnnualRatioListWidgetState extends State<AnnualRatioListWidget> {
 
   // cell item widget builder.
   Widget _cellBuilder(BuildContext context, int section, int row) {
-    Widget widget;
+    Widget? widget;
 
     if (section == 0) {
       widget = dataWidget(row, shareData); //basic info
@@ -221,7 +221,7 @@ class _AnnualRatioListWidgetState extends State<AnnualRatioListWidget> {
       onTap: () {
         print('click cell item. -> section:$section row:$row');
       },
-      child: widget,
+      child: widget!,
     );
   }
 

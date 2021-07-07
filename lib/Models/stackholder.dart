@@ -1,8 +1,8 @@
 class StackholderItem {
-  String name;
-  String type;
-  String numOfShares;
-  String holding;
+  String? name;
+  String? type;
+  String? numOfShares;
+  String? holding;
 
   StackholderItem(
       String name, String type, String numOfShares, String holding) {
