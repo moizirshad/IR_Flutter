@@ -22,11 +22,12 @@ class ApiUrls {
   static String CompanyPositionType = "companyPositionType";
 }
 
-
+const String BaseUrl = "http://irapi.argaam.com/v1.2/json/";
 const companyInfo = "InvestorsRelation/CompanyInfo";
 const getFinancialStatementsWithHistory = "InvestorsRelation/GetFinancialStatementsWithHistory?&period=%@&limit=%d";
 const getFinancialReports = "InvestorsRelation/GetFinancialPDFReports?period=%@&periodval=%@&year=%@";
-const getCompanyBoardMembers = "InvestorsRelation/CompanyBoardManagementMembers?companyPositionType=%@";
+const getCompanyBoardMembers = BaseUrl + "InvestorsRelation/CompanyBoardManagementMembers";
+
 const majorShareholdersURL = "InvestorsRelation/CompanyMajorShareHolders";
 const getFinancialRatiosWithHistoryURL = "InvestorsRelation/GetFinancialRatioWithHistory?period=%@&limit=%d";
 const getAllFinancialPDFReportsURL = "InvestorsRelation/GetAllFinancialPDFReports";
