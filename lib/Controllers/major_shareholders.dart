@@ -5,8 +5,8 @@ import 'package:flutter_tableview/flutter_tableview.dart';
 import 'package:ir_app/Constants/colors.dart';
 import 'package:ir_app/Models/stackholder.dart';
 import 'package:ir_app/Models/foreign_ownership_item.dart';
-import 'package:ir_app/Widgets/MajorStackholderWidgets/foreign_ownership_widget.dart';
-import 'package:ir_app/Widgets/MajorStackholderWidgets/stackholder_widget.dart';
+//import 'package:ir_app/Widgets/MajorStackholderWidgets/foreign_ownership_widget.dart';
+//import 'package:ir_app/Widgets/MajorStackholderWidgets/stackholder_widget.dart';
 
 class MajorShareHoldersWidget extends StatefulWidget {
   @override
@@ -41,7 +41,6 @@ class _MajorShareHoldersWidgetState extends State<MajorShareHoldersWidget> {
   void initState() {
     super.initState();
 
-    print('create state callled');
     this.sectionCount = sectionsText.length;
   }
 
@@ -70,7 +69,7 @@ class _MajorShareHoldersWidgetState extends State<MajorShareHoldersWidget> {
       child: Container(
         alignment: Alignment.centerLeft,
         padding: EdgeInsets.only(left: 16.0),
-        color: Colors.grey[400]!.withOpacity(0.3),
+        color: Colors.grey[400], //.withOpacity(0.3),
         height: 100,
         child: Text(
           sectionsText[section],
@@ -112,16 +111,240 @@ class _MajorShareHoldersWidgetState extends State<MajorShareHoldersWidget> {
   Widget stackHolderWidget(int row) {
     var stackholderItem = this.stackholderItems[row];
 
-    return StackHolderWidgt(
-      stackholderItem: stackholderItem,
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+                decoration: BoxDecoration(
+                  color: Colors.green[50],
+                  border: Border.all(width: 1.0, color: Colors.green),
+                ),
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          stackholderItem.name!,
+                          style: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 8.0,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          stackholderItem.type!,
+                          style: TextStyle(
+                              fontSize: 14.0, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                  ],
+                )),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(width: 1.0, color: Colors.green),
+              ),
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(children: [
+                      Row(
+                        children: [
+                          Text(
+                            'No of Shares (M)',
+                            style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w500,
+                                color: grey_text),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8.0,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            stackholderItem.numOfShares!,
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w500,
+                                color: black_text),
+                          ),
+                        ],
+                      ),
+                    ]),
+                  ),
+                  Expanded(
+                    child: Column(children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Holding',
+                            style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w500,
+                                color: grey_text),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8.0,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            stackholderItem.holding!,
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w500,
+                                color: black_text),
+                          ),
+                        ],
+                      ),
+                    ]),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
+
+    // return StackHolderWidgt(
+    //   stackholderItem: stackholderItem,
+    // );
   }
 
   Widget foreignOwnershipWidget(int row) {
     var foreignOwnershipItem = this.foreignOwnershipItems[row];
 
-    return ForeignOwernershipWidget(
-      foreignOwnershipItem: foreignOwnershipItem,
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+                decoration: BoxDecoration(
+                  color: Colors.green[50],
+                  border: Border.all(width: 1.0, color: Colors.green),
+                ),
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          foreignOwnershipItem.name!,
+                          style: TextStyle(
+                              fontSize: 18.0, fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 8.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Maximum Limit',
+                          style: TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w500,
+                              color: grey_text),
+                        ),
+                        SizedBox(width: 40),
+                        Text(
+                          'Actual',
+                          style: TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w500,
+                              color: grey_text),
+                        ),
+                        SizedBox(width: 20),
+                      ],
+                    ),
+                  ],
+                )),
+            Container(
+              height: 60.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  width: 1.0,
+                  color: Colors.green[50]!,
+                ),
+              ),
+              padding: EdgeInsets.all(14.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Total Foreign Ownership',
+                            style: TextStyle(fontSize: 16.0, color: grey_text),
+                          ),
+                        ],
+                      ),
+                    ]),
+                  ),
+                  Column(children: [
+                    Row(
+                      children: [
+                        Text(
+                          foreignOwnershipItem.maxLimit!,
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w600,
+                              color: black_text),
+                        ),
+                      ],
+                    ),
+                  ]),
+                  SizedBox(
+                    width: 40.0,
+                  ),
+                  Column(children: [
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Row(
+                        children: [
+                          Text(
+                            foreignOwnershipItem.actual!,
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w600,
+                                color: black_text),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ])
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
+
+    // return ForeignOwernershipWidget(
+    //   foreignOwnershipItem: foreignOwnershipItem,
+    // );
   }
 }
